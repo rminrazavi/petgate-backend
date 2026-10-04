@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pets",
+  "info": {
+    "singularName": "pet",
+    "pluralName": "pets",
+    "displayName": "Pet",
+    "description": "A customer's pet profile. Species is a property of the PET, expressed through the same Category taxonomy the catalogue uses (root category = animal). Product classification stays on Product.category - the removed Product.petType is NOT reintroduced."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 60
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "pets"
+    },
+    "breed": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ]
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "pets"
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "microchipNumber": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "activityLevel": {
+      "type": "enumeration",
+      "enum": [
+        "low",
+        "moderate",
+        "high"
+      ]
+    },
+    "medicalHistory": {
+      "type": "component",
+      "component": "pet.medical-history",
+      "repeatable": true
+    },
+    "nutrition": {
+      "type": "component",
+      "component": "pet.nutrition",
+      "repeatable": false
+    },
+    "care": {
+      "type": "component",
+      "component": "pet.care",
+      "repeatable": false
+    }
+  }
+}

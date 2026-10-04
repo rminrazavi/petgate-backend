@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "smses",
+  "info": {
+    "singularName": "sms",
+    "pluralName": "smses",
+    "displayName": "SMS"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "enumeration",
+      "enum": [
+        "kavenegar"
+      ]
+    },
+    "smsStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "sent",
+        "failed"
+      ]
+    },
+    "trackingCode": {
+      "type": "string"
+    },
+    "sentAt": {
+      "type": "datetime"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "sms"
+    }
+  }
+}

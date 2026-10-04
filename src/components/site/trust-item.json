@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_site_trust_items",
+  "info": {
+    "displayName": "Trust item"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "enumeration",
+      "enum": [
+        "shield",
+        "truck",
+        "payment",
+        "support",
+        "return"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

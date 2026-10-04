@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banners",
+  "info": {
+    "singularName": "banner",
+    "pluralName": "banners",
+    "displayName": "Banner"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "home_top",
+        "home_middle",
+        "category",
+        "product",
+        "sidebar"
+      ]
+    },
+    "priority": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "startDate": {
+      "type": "datetime"
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "text"
+    },
+    "desktopImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "mobileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "buttonLink": {
+      "type": "string"
+    },
+    "badge": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category",
+      "inversedBy": "banner"
+    },
+    "eyebrow": {
+      "type": "string",
+      "maxLength": 120
+    }
+  }
+}

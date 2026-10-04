@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "settings",
+  "info": {
+    "singularName": "setting",
+    "pluralName": "settings",
+    "displayName": "Setting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "whatsapp": {
+      "type": "string"
+    },
+    "telegram": {
+      "type": "string"
+    },
+    "footerText": {
+      "type": "blocks"
+    },
+    "trustItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "site.trust-item"
+    },
+    "trustSymbols": {
+      "type": "component",
+      "repeatable": true,
+      "component": "site.trust-symbol"
+    },
+    "appStoreUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "googlePlayUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "bazaarUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "supportUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "privacyUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "termsUrl": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "site.link"
+    },
+    "key": {
+      "type": "uid",
+      "targetField": "siteName",
+      "unique": true
+    }
+  }
+}

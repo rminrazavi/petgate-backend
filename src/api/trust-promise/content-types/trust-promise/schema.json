@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "trust_promises",
+  "info": { "singularName": "trust-promise", "pluralName": "trust-promises", "displayName": "Trust Promise" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+  "key": { "type": "uid", "targetField": "label", "required": true, "unique": true },
+  "label": { "type": "string", "required": true, "maxLength": 140 },
+  "shortLabel": { "type": "string", "maxLength": 80 },
+  "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+  "order": { "type": "integer", "default": 0, "min": 0 },
+  "active": { "type": "boolean", "default": true }
+}
+}

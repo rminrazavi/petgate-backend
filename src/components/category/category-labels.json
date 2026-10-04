@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_category_category_labels",
+  "info": {
+    "displayName": "categoryLabels"
+  },
+  "options": {},
+  "attributes": {
+    "parentCategory": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

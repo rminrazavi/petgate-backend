@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_editorial_sections",
+  "info": { "displayName": "Editorial section", "icon": "layout" },
+  "attributes": {
+    "eyebrow": { "type": "string", "maxLength": 120 },
+    "title": { "type": "string", "maxLength": 180 },
+    "description": { "type": "text", "maxLength": 1200 },
+    "ctaLabel": { "type": "string", "maxLength": 100 },
+    "ctaHref": { "type": "string", "maxLength": 500 },
+    "active": { "type": "boolean", "default": true }
+  }
+}

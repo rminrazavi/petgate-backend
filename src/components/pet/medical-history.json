@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_pet_medical_histories",
+  "info": { "displayName": "Medical history" },
+  "attributes": {
+    "disease": { "type": "string", "required": true, "maxLength": 120 },
+    "startDate": { "type": "date" },
+    "endDate": { "type": "date" },
+    "status": { "type": "enumeration", "enum": ["ongoing", "managed", "recovered"] },
+    "description": { "type": "text", "maxLength": 1000 }
+  }
+}

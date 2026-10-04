@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_bundle_items",
+  "info": {
+    "singularName": "product-bundle-item",
+    "pluralName": "product-bundle-items",
+    "displayName": "Product Bundle Item"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bundle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-bundle.product-bundle",
+      "inversedBy": "items"
+    },
+    "productVariant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-variant.product-variant",
+      "description": "One-directional on purpose — the busiest schema in the app (ProductVariant) is left untouched. See implementation notes."
+    },
+    "quantity": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "default": 1
+    }
+  }
+}

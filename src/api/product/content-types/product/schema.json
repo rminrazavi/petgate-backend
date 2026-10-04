@@ -1,0 +1,132 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 150,
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "maxLength": 200,
+      "required": true,
+      "unique": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::brand.brand",
+      "inversedBy": "products"
+    },
+    "ageGroup": {
+      "type": "enumeration",
+      "enum": [
+        "puppy",
+        "kitten",
+        "junior",
+        "adult",
+        "senior",
+        "all"
+      ]
+    },
+    "healthCondition": {
+      "type": "enumeration",
+      "enum": [
+        "NONE",
+        "STERILIZED",
+        "RENAL",
+        "URINARY",
+        "GASTRO",
+        "SKIN",
+        "HAIRBALL",
+        "WEIGHT_CONTROL",
+        "DIABETIC",
+        "JOINT",
+        "SENSITIVE"
+      ]
+    },
+    "variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-variant.product-variant",
+      "mappedBy": "product"
+    },
+    "ingredients": {
+      "type": "richtext"
+    },
+    "usageGuide": {
+      "type": "richtext"
+    },
+    "specifications": {
+      "type": "component",
+      "component": "product.specification",
+      "repeatable": true
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    },
+    "campaigns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::campaign.campaign",
+      "mappedBy": "products"
+    },
+    "wishlists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::wishlist.wishlist",
+      "mappedBy": "products"
+    },
+    "averageRating": {
+      "type": "decimal",
+      "default": 0
+    },
+    "countryOfOrigin": {
+      "type": "string"
+    },
+    "reviewCount": {
+      "type": "integer"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "searchKeywords": {
+      "type": "text"
+    }
+  }
+}

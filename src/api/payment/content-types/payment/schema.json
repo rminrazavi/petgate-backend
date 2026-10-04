@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "providerToken": {
+      "type": "string"
+    },
+    "resNum": {
+      "type": "string"
+    },
+    "referenceId": {
+      "type": "string"
+    },
+    "paymentUrl": {
+      "type": "string"
+    },
+    "refId": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "cardPan": {
+      "type": "string"
+    },
+    "paidAt": {
+      "type": "datetime"
+    },
+    "paymentStatus": {
+      "type": "enumeration",
+      "default": "pending",
+      "enum": [
+        "pending",
+        "success",
+        "failed",
+        "refunded"
+      ]
+    },
+    "gateway": {
+      "type": "enumeration",
+      "enum": [
+        "sep"
+      ]
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "inversedBy": "payment"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inventories",
+  "info": {
+    "singularName": "inventory",
+    "pluralName": "inventories",
+    "displayName": "Inventory"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "stock": {
+      "type": "integer",
+      "default": 0
+    },
+    "reserved": {
+      "type": "integer",
+      "default": 0
+    },
+    "sold": {
+      "type": "integer",
+      "default": 0
+    },
+    "product_variant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-variant.product-variant",
+      "inversedBy": "inventories"
+    },
+    "expiryDate": {
+      "type": "date"
+    },
+    "stockExpired": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

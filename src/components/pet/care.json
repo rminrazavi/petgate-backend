@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_pet_cares",
+  "info": { "displayName": "Care" },
+  "attributes": {
+    "lastVaccination": { "type": "date" },
+    "lastDeworming": { "type": "date" },
+    "lastVetVisit": { "type": "date" },
+    "lastGrooming": { "type": "date" },
+    "specialCare": { "type": "text", "maxLength": 1000 }
+  }
+}

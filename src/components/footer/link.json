@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_footer_links",
+  "info": { "displayName": "Footer link", "icon": "link" },
+  "attributes": {
+    "label": { "type": "string", "required": true, "maxLength": 120 },
+    "href": { "type": "string", "maxLength": 500 },
+    "category": { "type": "relation", "relation": "oneToOne", "target": "api::category.category" },
+    "external": { "type": "boolean", "default": false },
+    "active": { "type": "boolean", "default": true },
+    "order": { "type": "integer", "default": 0, "min": 0 }
+  }
+}

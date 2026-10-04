@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_bundle_order_item_snapshots",
+  "info": {
+    "displayName": "Bundle Order Item Snapshot",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "bundleNameSnapshot": {
+      "type": "string",
+      "required": true
+    },
+    "bundleSlugSnapshot": {
+      "type": "string"
+    },
+    "components": {
+      "type": "component",
+      "component": "bundle.bundle-component-snapshot",
+      "repeatable": true
+    }
+  }
+}

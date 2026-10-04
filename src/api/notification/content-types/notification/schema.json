@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "message": {
+      "type": "blocks"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "order",
+        "promotion",
+        "system",
+        "sms"
+      ]
+    },
+    "isRead": {
+      "type": "boolean"
+    },
+    "sentAt": {
+      "type": "datetime"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "notifications"
+    }
+  }
+}

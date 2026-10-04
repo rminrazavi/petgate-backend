@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "orderNumber": {
+      "type": "uid"
+    },
+    "orderStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "waiting_payment",
+        "paid",
+        "preparing",
+        "shipping",
+        "delivered",
+        "cancelled",
+        "returned"
+      ]
+    },
+    "shippingPrice": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "totalPrice": {
+      "type": "decimal"
+    },
+    "finalPrice": {
+      "type": "decimal"
+    },
+    "trackingCode": {
+      "type": "string"
+    },
+    "note": {
+      "type": "blocks"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "orders"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address",
+      "inversedBy": "orders"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "order"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "mappedBy": "order"
+    },
+    "coupon": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::coupon.coupon",
+      "inversedBy": "orders"
+    },
+    "paidAt": {
+      "type": "datetime"
+    }
+  }
+}

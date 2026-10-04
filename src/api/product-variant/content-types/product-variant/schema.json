@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_variants",
+  "info": {
+    "singularName": "product-variant",
+    "pluralName": "product-variants",
+    "displayName": "Product Variant"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sku": {
+      "type": "string",
+      "unique": true,
+      "maxLength": 50
+    },
+    "product": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product.product",
+      "inversedBy": "variants"
+    },
+    "attributes": {
+      "type": "component",
+      "component": "product.attribute",
+      "repeatable": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "discountPrice": {
+      "type": "decimal"
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "cart_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cart-item.cart-item",
+      "mappedBy": "product_variant"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "product_variant"
+    },
+    "inventories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::inventory.inventory",
+      "mappedBy": "product_variant"
+    },
+    "isDefault": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

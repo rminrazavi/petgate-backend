@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "analytics_events",
+  "info": {
+    "singularName": "analytics-event",
+    "pluralName": "analytics-events",
+    "displayName": "Analytics Event",
+    "description": "Raw first-party event log (page views, product/category views, search, cart, wishlist, checkout, purchase). Written only through POST /api/analytics/track — do not create/edit records by hand."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "content-manager": {
+      "visible": true
+    },
+    "content-type-builder": {
+      "visible": true
+    }
+  },
+  "attributes": {
+    "eventName": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "description": "Validated against the event allowlist in src/utils/analytics-events.js, not a DB enum, so new events don't need a migration."
+    },
+    "anonymousId": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "sessionId": {
+      "type": "string",
+      "required": true,
+      "maxLength": 100
+    },
+    "customerId": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "documentId of api::customer.customer, denormalized (no formal relation) to keep event writes cheap and to avoid touching the Customer schema. Nullable for anonymous events."
+    },
+    "occurredAt": {
+      "type": "datetime",
+      "required": true,
+      "description": "Client-reported event time. Defaults to server receipt time if omitted."
+    },
+    "pageUrl": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "referrer": {
+      "type": "string",
+      "maxLength": 2048
+    },
+    "deviceType": {
+      "type": "enumeration",
+      "enum": ["desktop", "mobile", "tablet", "unknown"],
+      "default": "unknown"
+    },
+    "userAgent": {
+      "type": "string",
+      "maxLength": 512
+    },
+    "utmSource": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "utmMedium": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "utmCampaign": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "utmContent": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "utmTerm": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "properties": {
+      "type": "json",
+      "description": "Event-specific extensible payload, e.g. { productId }, { searchQuery, resultCount }. Capped at 20 top-level keys server-side."
+    }
+  }
+}

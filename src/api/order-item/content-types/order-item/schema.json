@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_items",
+  "info": {
+    "singularName": "order-item",
+    "pluralName": "order-items",
+    "displayName": "Order Item"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "discountPrice": {
+      "type": "decimal"
+    },
+    "order": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::order.order",
+      "inversedBy": "order_items"
+    },
+    "product_variant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-variant.product-variant",
+      "inversedBy": "order_items"
+    },
+    "product_bundle": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-bundle.product-bundle",
+      "inversedBy": "order_items"
+    },
+    "itemType": {
+      "type": "enumeration",
+      "enum": ["variant", "bundle"],
+      "default": "variant"
+    },
+    "bundleSnapshot": {
+      "type": "component",
+      "component": "bundle.order-item-snapshot",
+      "repeatable": false,
+      "description": "Only populated when itemType is 'bundle'. Frozen at checkout time so historical orders stay accurate even if the bundle definition later changes."
+    }
+  }
+}

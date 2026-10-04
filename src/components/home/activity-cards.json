@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_home_activity_cards",
+  "info": {
+    "displayName": "activity_cards"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sortOrder": {
+      "type": "integer"
+    },
+    "active": {
+      "type": "boolean"
+    }
+  },
+  "config": {}
+}

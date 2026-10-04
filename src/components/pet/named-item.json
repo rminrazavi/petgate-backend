@@ -1,0 +1,5 @@
+{
+  "collectionName": "components_pet_named_items",
+  "info": { "displayName": "Named item" },
+  "attributes": { "name": { "type": "string", "required": true, "maxLength": 120 } }
+}

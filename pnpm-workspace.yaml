@@ -1,0 +1,6 @@
+allowBuilds:
+  '@apollo/protobufjs': true
+  '@swc/core': true
+  core-js-pure: true
+  esbuild: true
+  sharp: true

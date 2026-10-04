@@ -1,0 +1,64 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Navigation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "default": "link",
+      "enum": [
+        "mega",
+        "dropdown",
+        "link"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu"
+    },
+    "key": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "header",
+        "footer",
+        "utility",
+        "account"
+      ],
+      "required": true,
+      "default": "header"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.item"
+    }
+  }
+}

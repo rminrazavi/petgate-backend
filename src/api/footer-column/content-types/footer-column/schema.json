@@ -1,0 +1,13 @@
+{
+  "kind": "collectionType",
+  "collectionName": "footer_columns",
+  "info": { "singularName": "footer-column", "pluralName": "footer-columns", "displayName": "Footer Column" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+  "key": { "type": "uid", "targetField": "title", "required": true, "unique": true },
+  "title": { "type": "string", "required": true, "maxLength": 120 },
+  "links": { "type": "component", "repeatable": true, "component": "footer.link" },
+  "order": { "type": "integer", "default": 0, "min": 0 },
+  "active": { "type": "boolean", "default": true }
+}
+}

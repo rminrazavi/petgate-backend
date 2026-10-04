@@ -1,0 +1,10 @@
+{
+  "collectionName": "components_editorial_utility_items",
+  "info": { "displayName": "Utility bar item", "icon": "information" },
+  "attributes": {
+    "label": { "type": "string", "required": true, "maxLength": 180 },
+    "href": { "type": "string", "maxLength": 500 },
+    "order": { "type": "integer", "default": 0, "min": 0 },
+    "active": { "type": "boolean", "default": true }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "HomePage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_banners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::banner.banner"
+    },
+    "category_banners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::banner.banner"
+    },
+    "featured_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "discount_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "latest_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "featured_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "activityCard": {
+      "type": "component",
+      "component": "home.activity-cards",
+      "repeatable": true
+    },
+    "utilityBar": {
+      "type": "component",
+      "repeatable": true,
+      "component": "editorial.utility-item"
+    },
+    "brandTagline": {
+      "type": "string",
+      "maxLength": 220
+    },
+    "petPicker": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "trustSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "categoryHub": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "bestsellerSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "guideSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "problemFinderSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "calculatorSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "bundleSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "expertSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "magazineSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "notFoundHelp": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "appPrompt": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "faqSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "editorial.section"
+    },
+    "backToTopLabel": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "trustPromises": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::trust-promise.trust-promise"
+    },
+    "expertProfiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::expert-profile.expert-profile"
+    }
+  }
+}

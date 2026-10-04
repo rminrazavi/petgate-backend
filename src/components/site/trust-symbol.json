@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_site_trust_symbols",
+  "info": {
+    "displayName": "Trust symbol",
+    "description": "A real certification or payment-trust seal shown in the footer (e-Namad, Digipay). Distinct from site.trust-item, which is an icon-and-text service promise, not a certification."
+  },
+  "options": {},
+  "attributes": {
+    "provider": {
+      "type": "enumeration",
+      "enum": ["enamad", "digipay", "samandehi", "other"],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name / alt text, e.g. «نماد اعتماد الکترونیکی»."
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"],
+      "description": "The official seal artwork supplied by the provider. Optional for e-Namad: when empty, the seal is served from trustseal.enamad.ir using enamadId/enamadCode."
+    },
+    "verificationUrl": {
+      "type": "string",
+      "description": "Where the seal links. Optional for e-Namad: derived from enamadId/enamadCode when empty."
+    },
+    "enamadId": {
+      "type": "string",
+      "description": "e-Namad only. The `id` value from the code issued at enamad.ir."
+    },
+    "enamadCode": {
+      "type": "string",
+      "description": "e-Namad only. The `Code` value from the code issued at enamad.ir. Also the id the e-Namad verifier expects on the <img> element."
+    },
+    "order": {
+      "type": "integer"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

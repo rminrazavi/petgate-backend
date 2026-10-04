@@ -1,0 +1,117 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "Customer"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "customer"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "nationalCode": {
+      "type": "string"
+    },
+    "birthDate": {
+      "type": "date"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ]
+    },
+    "points": {
+      "type": "integer",
+      "default": 0
+    },
+    "wallet": {
+      "type": "decimal",
+      "default": 0
+    },
+    "totalSpent": {
+      "type": "decimal",
+      "default": 0
+    },
+    "orderCount": {
+      "type": "integer",
+      "default": 0
+    },
+    "vipLevel": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "silver",
+        "gold",
+        "diamond"
+      ]
+    },
+    "addresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::address.address",
+      "mappedBy": "customer"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "customer"
+    },
+    "wishlist": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wishlist.wishlist",
+      "mappedBy": "customer"
+    },
+    "pets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pet.pet",
+      "mappedBy": "customer"
+    },
+    "cart": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::cart.cart",
+      "mappedBy": "customer"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "customer"
+    },
+    "notifications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::notification.notification",
+      "mappedBy": "customer"
+    },
+    "sms": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sms.sms",
+      "mappedBy": "customer"
+    }
+  }
+}

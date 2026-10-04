@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_product_attributes",
+  "info": {
+    "displayName": "Attribute",
+    "icon": "sliders"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

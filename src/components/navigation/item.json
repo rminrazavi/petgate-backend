@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_navigation_items",
+  "info": { "displayName": "Navigation item", "icon": "bulletList" },
+  "attributes": {
+    "label": { "type": "string", "required": true, "maxLength": 120 },
+    "href": { "type": "string", "maxLength": 500 },
+    "category": { "type": "relation", "relation": "oneToOne", "target": "api::category.category" },
+    "external": { "type": "boolean", "default": false },
+    "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "order": { "type": "integer", "default": 0, "min": 0 },
+    "active": { "type": "boolean", "default": true },
+    "children": { "type": "component", "repeatable": true, "component": "navigation.sub-item" }
+  }
+}

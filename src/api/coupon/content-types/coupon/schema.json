@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupons",
+  "info": {
+    "singularName": "coupon",
+    "pluralName": "coupons",
+    "displayName": "Coupon"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "percent",
+        "fixed"
+      ],
+      "default": "percent"
+    },
+    "value": {
+      "type": "decimal",
+      "required": true
+    },
+    "minimumOrder": {
+      "type": "decimal",
+      "default": 0,
+      "min": 0
+    },
+    "maxDiscount": {
+      "type": "decimal",
+      "min": 0
+    },
+    "usageLimit": {
+      "type": "integer",
+      "min": 1
+    },
+    "usedCount": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "coupon"
+    },
+    "oncePerCustomer": {
+      "type": "boolean",
+      "default": false
+    },
+    "customers": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::customer.customer"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category"
+    }
+  }
+}

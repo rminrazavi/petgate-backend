@@ -1,0 +1,107 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "unique": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "category"
+    },
+    "productBundles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-bundle.product-bundle",
+      "mappedBy": "category"
+    },
+    "pets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pet.pet",
+      "mappedBy": "category"
+    },
+    "campaigns": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::campaign.campaign",
+      "mappedBy": "categories"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "banner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::banner.banner",
+      "mappedBy": "category"
+    },
+    "parents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "children"
+    },
+    "children": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "parents"
+    },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "categoryLabels": {
+      "type": "component",
+      "component": "category.category-labels",
+      "repeatable": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

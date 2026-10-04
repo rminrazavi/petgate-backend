@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_bundles",
+  "info": {
+    "singularName": "product-bundle",
+    "pluralName": "product-bundles",
+    "displayName": "Product Bundle"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 150,
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 200
+    },
+    "sku": {
+      "type": "string",
+      "unique": true
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "bundlePrice": {
+      "type": "decimal",
+      "required": true,
+      "min": 0,
+      "description": "Editorial selling price for the whole bundle. The regular/discount comparison is always computed live from component variant prices, never stored (see utils/bundle-price.js)."
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true,
+      "description": "Purchasability gate, independent of draft/publish — mirrors ProductVariant.isActive."
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "productBundles"
+    },
+    "items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-bundle-item.product-bundle-item",
+      "mappedBy": "bundle"
+    },
+    "cart_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cart-item.cart-item",
+      "mappedBy": "product_bundle"
+    },
+    "order_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order-item.order-item",
+      "mappedBy": "product_bundle"
+    },
+    "seo": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    }
+  }
+}

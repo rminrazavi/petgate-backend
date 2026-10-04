@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_navigation_sub_items",
+  "info": { "displayName": "Navigation child", "icon": "link" },
+  "attributes": {
+    "label": { "type": "string", "required": true, "maxLength": 120 },
+    "href": { "type": "string", "maxLength": 500 },
+    "category": { "type": "relation", "relation": "oneToOne", "target": "api::category.category" },
+    "external": { "type": "boolean", "default": false },
+    "order": { "type": "integer", "default": 0, "min": 0 },
+    "active": { "type": "boolean", "default": true }
+  }
+}

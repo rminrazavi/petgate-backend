@@ -1,0 +1,16 @@
+{
+  "kind": "collectionType",
+  "collectionName": "expert_profiles",
+  "info": { "singularName": "expert-profile", "pluralName": "expert-profiles", "displayName": "Expert Profile" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+  "name": { "type": "string", "required": true, "maxLength": 160 },
+  "image": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+  "bio": { "type": "text", "maxLength": 2000 },
+  "credentials": { "type": "text", "maxLength": 1000 },
+  "ctaLabel": { "type": "string", "maxLength": 100 },
+  "ctaTarget": { "type": "string", "maxLength": 500 },
+  "active": { "type": "boolean", "default": true },
+  "order": { "type": "integer", "default": 0, "min": 0 }
+}
+}

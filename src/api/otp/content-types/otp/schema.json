@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "otps",
+  "info": {
+    "singularName": "otp",
+    "pluralName": "otps",
+    "displayName": "otp",
+    "description": "Server-issued one-time codes. Only ever written through api::otp.otp's service; codes are stored as salted hashes and are never returned by any API."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "phone": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
+    },
+    "codeHash": {
+      "type": "string",
+      "required": true,
+      "private": true,
+      "maxLength": 128
+    },
+    "expireAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "used": {
+      "type": "boolean",
+      "default": false
+    },
+    "usedAt": {
+      "type": "datetime"
+    },
+    "ip": {
+      "type": "string",
+      "maxLength": 64,
+      "private": true
+    },
+    "attempts": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

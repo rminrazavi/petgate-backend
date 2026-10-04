@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_site_links",
+  "info": { "displayName": "Site link", "icon": "link" },
+  "attributes": {
+    "label": { "type": "string", "required": true, "maxLength": 120 },
+    "href": { "type": "string", "required": true, "maxLength": 500 },
+    "external": { "type": "boolean", "default": false },
+    "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "order": { "type": "integer", "default": 0, "min": 0 },
+    "active": { "type": "boolean", "default": true }
+  }
+}
